@@ -1,0 +1,69 @@
+/* 
+  SPDX-FileCopyrightText: The PFDL VS Code Extension Contributors
+  SPDX-License-Identifier: MIT
+*/
+
+:root {
+  --component-started-color: #f58220;
+  --component-finished-color: #a6bbc8;
+  --component-done-color: #b2d235;
+  --statement-passed-color: #669db2;
+  --statement-failed-color: #bb0056;
+  --statement-entry-color: #d3c7ae;
+  --task-box-color: #ffffff;
+  --service-box-color: #ccdee5;
+  --condition-box-color: #39c1cd;
+  --loop-box-color: #fdb913;
+  --parallel-box-color: #179c7d;
+  --error-button-color: #e1523d;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  overflow: hidden;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#cy {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: white;
+}
+
+#myCanvas {
+  position: fixed;
+  width: 20%;
+  min-width: 180px;
+  top: 5%;
+  right: 3%;
+  background-color: #e4d2d2;
+  opacity: 85%;
+  border-radius: 15px;
+  z-index: 2;
+  border: 2px solid black;
+}
+
+#errorCanvasParent {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+#errorCanvas {
+  width: 100%;
+  background-color: #b4bec9;
+  opacity: 100%;
+  z-index: 2;
+  border: 2px solid black;
+}

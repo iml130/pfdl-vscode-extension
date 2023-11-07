@@ -1,0 +1,130 @@
+{
+  "name": "pfdl-vscode-extension",
+  "displayName": "VS Code Extension for the Production Flow Description Language (PFDL)",
+  "description": "A VS Code extension to support syntax highlighting, formatting and code visualization for the Production Flow Description Language (PFDL) files",
+  "author": "Oliver Stolz and Maximilian Hörstrup",
+  "license": "MIT",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iml130/pfdl-vscode-extension"
+  },
+  "publisher": "fraunhofer",
+  "categories": [],
+  "icon": "img/pfdl_logo.png",
+  "keywords": [
+    "multi-root ready"
+  ],
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "activationEvents": [
+    "onLanguage:production_flow_description_language"
+  ],
+  "main": "./client/out/extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "PFDL language server configuration",
+      "properties": {
+        "PFDLLanguageServer.maxNumberOfProblems": {
+          "scope": "resource",
+          "type": "number",
+          "default": 100,
+          "description": "The maximum number of problems produced by the server."
+        },
+        "PFDLLanguageServer.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the PFDL language server."
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "production_flow_description_language",
+        "extensions": [
+          ".pfdl"
+        ],
+        "aliases": [
+          "Production Flow Description Language",
+          "PFDL",
+          "pfdl"
+        ],
+        "configuration": "./language_configuration/language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "production_flow_description_language",
+        "scopeName": "source.production_flow_description_language",
+        "path": "./client/syntax/production_flow_description_language.tmGrammar.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.frontmatter": "yaml"
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "webview.show",
+        "title": "Visualize Code",
+        "category": "Webview"
+      },
+      {
+        "command": "webview.downloadPng",
+        "title": "Download PNG",
+        "category": "Webview"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceLangId == production_flow_description_language",
+          "command": "webview.show",
+          "group": "navigation@0"
+        },
+        {
+          "when": "resourceLangId == production_flow_description_language",
+          "command": "webview.downloadPng",
+          "group": "navigation@1"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+    "test": "jest client/src/test/*.test.ts",
+    "test:ci": "jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",
+    "browserify": "browserify ./client/out/code_visualization/main.js -g browserify-css -o ./client/bundle.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.5",
+    "@types/node": "^12.12.0",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "browserify": "^17.0.0",
+    "browserify-css": "^0.15.0",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-extended": "^4.0.1",
+    "jest-junit": "^16.0.0",
+    "prettier": "3.0.3",
+    "ts-jest": "^29.1.1",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "python-shell": "^3.0.0"
+  }
+}

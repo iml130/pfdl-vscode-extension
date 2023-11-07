@@ -1,0 +1,47 @@
+// SPDX-FileCopyrightText: Microsoft Corporation
+// SPDX-FileCopyrightText: The PFDL VS Code Extension Contributors
+// SPDX-License-Identifier: MIT
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "compile",
+      "group": "build",
+      "presentation": {
+        "panel": "dedicated",
+        "reveal": "never"
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "npm_watch",
+      "type": "npm",
+      "script": "watch",
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "panel": "dedicated",
+        "reveal": "never"
+      },
+      "problemMatcher": ["$tsc-watch"]
+    },
+    {
+      "label": "browserify",
+      "type": "npm",
+      "script": "browserify"
+    },
+    {
+      "type": "shell",
+      "label": "remove_dot_files",
+      "command": "rm -rf ./media && mkdir media"
+    },
+    {
+      "label": "prepare_and_watch",
+      "dependsOn": ["browserify", "remove_dot_files", "npm_watch"]
+    }
+  ]
+}

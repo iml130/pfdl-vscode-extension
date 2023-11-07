@@ -1,0 +1,80 @@
+image: node:latest
+
+stages:
+  - 'Install npm'
+  - 'Building extension'
+  - 'Testing Code Visualization'
+  - 'Deploy'
+
+npm:
+  stage: 'Install npm'
+  script:
+    - npm install
+  cache:
+    paths:
+      - node_modules/
+  artifacts:
+    untracked: true
+    expire_in: 30 mins
+    paths:
+      - node_modules/
+  tags:
+    - intranet
+
+build:
+  stage: 'Building extension'
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - npm run compile
+    - npm run browserify
+    - npm install -g @vscode/vsce
+    - vsce package --out "./pfdl-extension.vsix"
+  cache:
+    paths:
+      - node_modules/
+  artifacts:
+    paths:
+      - ./pfdl-extension.vsix
+  dependencies:
+    - npm
+  tags:
+    - intranet
+
+test:
+  stage: 'Testing Code Visualization'
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+  script:
+    - npm run test:ci
+  cache:
+    paths:
+      - coverage/
+  artifacts:
+    paths:
+      - coverage/
+      - junit.xml
+    when: always
+    reports:
+      junit:
+        - junit.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
+  dependencies:
+    - npm
+  tags:
+    - intranet
+
+pages:
+  stage: 'Deploy'
+  dependencies:
+    - test
+  script:
+    - mkdir .public
+    - cp -r coverage/* .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master

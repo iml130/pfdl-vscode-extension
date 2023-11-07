@@ -1,0 +1,11 @@
+// SPDX-FileCopyrightText: The PFDL VS Code Extension Contributors
+// SPDX-License-Identifier: MIT
+{
+  "editor.insertSpaces": false,
+  "eslint.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "typescript.tsc.autoDetect": "off",
+  "editor.formatOnSave": true,
+  "eslint.validate": ["javascript", "typescript"],
+  "files.insertFinalNewline": true
+}

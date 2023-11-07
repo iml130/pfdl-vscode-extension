@@ -1,0 +1,33 @@
+// SPDX-FileCopyrightText: Microsoft Corporation
+// SPDX-FileCopyrightText: The PFDL VS Code Extension Contributors
+// SPDX-License-Identifier: MIT
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "extensionHost",
+      "request": "launch",
+      "name": "Launch Client",
+      "runtimeExecutable": "${execPath}",
+      "args": ["--extensionDevelopmentPath=${workspaceRoot}"],
+      "outFiles": ["${workspaceRoot}/client/out/**/*.js"],
+      "preLaunchTask": "prepare_and_watch"
+    },
+    {
+      "trace": true,
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Server",
+      "port": 6009,
+      "restart": true,
+      "outFiles": ["${workspaceRoot}/server/out/**/*.js"]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Client + Server",
+      "configurations": ["Launch Client", "Attach to Server"]
+    }
+  ]
+}

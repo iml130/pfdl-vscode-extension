@@ -1,0 +1,27 @@
+{
+  "name": "pfdl-language-client",
+  "description": "The VSCode client that listens for PFDL language server events",
+  "author": "Oliver Stolz and Maximilian Hörstrup",
+  "license": "MIT",
+  "version": "0.1.0",
+  "publisher": "fraunhofer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iml130/pfdl-vscode-extension"
+  },
+  "engines": {
+    "vscode": "^1.83.1"
+  },
+  "dependencies": {
+    "cytoscape": "^3.23.0",
+    "cytoscape-context-menus": "^4.1.0",
+    "cytoscape-no-overlap": "^1.0.1",
+    "cytoscape-popper": "^2.0.0",
+    "dotparser": "^1.1.1",
+    "tippy.js": "^6.3.7",
+    "vscode-languageclient": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.83.1"
+  }
+}

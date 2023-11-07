@@ -1,0 +1,19 @@
+{
+  "name": "pfdl-laguage-server",
+  "description": "Implementation of a language server supporting the Production Flow Description Language (PFDL) in node.",
+  "version": "0.1.0",
+  "author": "Oliver Stolz and Maximilian Hörstrup",
+  "license": "MIT",
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iml130/pfdl-vscode-extension"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^7.0.0",
+    "vscode-languageserver-textdocument": "^1.0.1"
+  },
+  "scripts": {}
+}

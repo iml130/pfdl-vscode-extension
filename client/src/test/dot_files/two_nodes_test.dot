@@ -1,0 +1,54 @@
+/* 
+SPDX-FileCopyrightText: The PFDL VS Code Extension Contributors
+SPDX-License-Identifier: MIT
+*/
+
+digraph {
+	graph [bb="0,0,289,431",
+		overlap=false,
+		splines=true
+	];
+	node [fillcolor="#FFFFFF",
+		fontcolor="#000000",
+		label=N,
+		style=filled
+	];
+	edge [style=solid];
+	subgraph cluster_139823381361904 {
+		graph [bb="101,8,281,423",
+			margin=15,
+			newrank=true,
+			style=""
+		];
+		
+		node_0	[group="dc1e426e-6136-4ca4-9848-bb8145040b62",
+			height=0.5,
+			id=node_0,
+			label="",
+			pos="218,390",
+			shape=circle,
+			tooltip="785ed33f-ac55-4fc0-9c9b-e1a138f98e3c",
+			width=0.5,
+			xlabel=productionTask_started,
+			xlp="115.5,415.5"];
+		node_1	[fillcolor=black,
+			group="dc1e426e-6136-4ca4-9848-bb8145040b62",
+			height=0.097222,
+			id=node_1,
+			label="",
+			pos="218,332.5",
+			shape=circle,
+			tooltip="4ce8ec5d-3f45-45a3-8cf3-5e6ba05083ba",
+			width=0.5,
+			xlabel=productionTask_finished,
+			xlp="86.5,66.5"];
+		node_0 -> node_1	[arrowhead=normal,
+			pos="e,218,336.36 218,371.74 218,363.59 218,354.02 218,346.49"];
+	}
+}
+
+call_tree:{
+    "id": "dc1e426e-6136-4ca4-9848-bb8145040b62",
+    "name": "productionTask",
+    "children": []
+}

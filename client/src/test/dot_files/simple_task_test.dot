@@ -1,0 +1,143 @@
+/*
+SPDX-FileCopyrightText: The PFDL Contributors
+SPDX-License-Identifier: MIT
+*/
+
+digraph {
+	graph [bb="0,0,289,431",
+		overlap=false,
+		splines=true
+	];
+	node [fillcolor="#FFFFFF",
+		fontcolor="#000000",
+		label=N,
+		style=filled
+	];
+	edge [style=solid];
+	subgraph cluster_140387746182384 {
+		graph [bb="101,8,281,423",
+			margin=15,
+			newrank=true,
+			style=""
+		];
+		subgraph cluster_140387746182864 {
+			graph [bb="116,110,266,321",
+				style=""
+			];
+			subgraph cluster_140387746182960 {
+				graph [bb="131,125,251,306",
+					style=""
+				];
+				node_4	[group="67681725-92ef-438d-90df-8a68a75c09e8",
+					height=0.5,
+					id=node_4,
+					label="",
+					pos="218,273",
+					shape=circle,
+					tooltip="200b9f63-9c91-4544-9121-e52ff2742b3f",
+					width=0.5,
+					xlabel="Painting started",
+					xlp="142,298.5"];
+				node_7	[fillcolor=black,
+					group="67681725-92ef-438d-90df-8a68a75c09e8",
+					height=0.097222,
+					id=node_7,
+					label="",
+					pos="191,215.5",
+					shape=rect,
+					tooltip="ed869b55-9616-4bc4-8667-4c829bb58b7c",
+					width=1];
+				node_4 -> node_7	[arrowhead=normal,
+					pos="e,192.3,219.17 210.48,256.54 206.15,247.65 200.8,236.64 196.8,228.42"];
+				node_5	[group="67681725-92ef-438d-90df-8a68a75c09e8",
+					height=0.5,
+					id=node_5,
+					label="",
+					pos="164,273",
+					shape=circle,
+					tooltip="1a699885-f5e0-456a-a29c-1e4138e5044d",
+					width=0.5,
+					xlabel="Painting finished",
+					xlp="85.5,262.5"];
+				node_5 -> node_7	[arrowhead=normal,
+					pos="e,189.7,219.17 171.52,256.54 175.85,247.65 181.2,236.64 185.2,228.42"];
+				node_6	[group="67681725-92ef-438d-90df-8a68a75c09e8",
+					height=0.5,
+					id=node_6,
+					label="",
+					pos="191,158",
+					shape=circle,
+					tooltip="3c3e1b96-0be4-488f-9694-25be11f8736d",
+					width=0.5,
+					xlabel="Painting done",
+					xlp="123.5,183.5"];
+				node_7 -> node_6	[arrowhead=normal,
+					pos="e,191,176.11 191,211.82 191,207.05 191,196.59 191,186.23"];
+			}
+		}
+		node_0	[group="b403cc8f-194e-4f3b-b755-79d92bebec69",
+			height=0.5,
+			id=node_0,
+			label="",
+			pos="218,390",
+			shape=circle,
+			tooltip="c76a6110-0dda-4910-b786-938c45805a63",
+			width=0.5,
+			xlabel=productionTask_started,
+			xlp="115.5,415.5"];
+		node_1	[fillcolor=black,
+			group="b403cc8f-194e-4f3b-b755-79d92bebec69",
+			height=0.097222,
+			id=node_1,
+			label="",
+			pos="218,332.5",
+			shape=rect,
+			tooltip="b62ca3df-9cc1-4bac-a928-9726779fea1b",
+			width=1];
+		node_0 -> node_1	[arrowhead=normal,
+			pos="e,218,336.36 218,371.74 218,363.59 218,354.02 218,346.49"];
+		node_1 -> node_4	[arrowhead=normal,
+			pos="e,218,291.19 218,328.73 218,323.66 218,312.42 218,301.43"];
+		node_2	[group="b403cc8f-194e-4f3b-b755-79d92bebec69",
+			height=0.5,
+			id=node_2,
+			label="",
+			pos="191,41",
+			shape=circle,
+			tooltip="17de9951-e9a7-442a-9a9c-b2138602e150",
+			width=0.5,
+			xlabel=productionTask_finished,
+			xlp="86.5,66.5"];
+		node_3	[fillcolor=black,
+			group="b403cc8f-194e-4f3b-b755-79d92bebec69",
+			height=0.097222,
+			id=node_3,
+			label="",
+			pos="191,98.5",
+			shape=rect,
+			tooltip="4cad0159-af57-4569-aab1-f20d676f55e8",
+			width=1];
+		node_3 -> node_2	[arrowhead=normal,
+			pos="e,191,59.112 191,94.823 191,90.049 191,79.589 191,69.227"];
+		node_6 -> node_3	[arrowhead=normal,
+			pos="e,191,102.14 191,139.75 191,130.89 191,120.29 191,112.19"];
+	}
+}
+
+call_tree:{
+    "id": "b403cc8f-194e-4f3b-b755-79d92bebec69",
+    "name": "productionTask",
+    "children": [
+        {
+            "id": "28f29fd8-cb15-4ebc-9fc0-994c54c3ed80",
+            "name": "paintingTask",
+            "children": [
+                {
+                    "id": "67681725-92ef-438d-90df-8a68a75c09e8",
+                    "name": "Painting",
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: The PFDL Contributors
+# SPDX-License-Identifier: MIT
+
+Struct PaintingResult
+    wetness: string
+End
+
+Task productionTask
+    paintingTask
+End
+
+Struct Color
+    name: string
+    rgb: number[3]
+End
+    
+Task paintingTask
+    Painting
+        In
+            Color
+            {
+                "name": "red",
+                "rgb": [255, 255, 255]
+            }
+        Out
+            pr: PaintingResult
+End

@@ -1,0 +1,19 @@
+// SPDX-FileCopyrightText: Microsoft Corporation
+// SPDX-FileCopyrightText: The PFDL VS Code Extension Contributors
+// SPDX-License-Identifier: MIT
+
+// based on https://github.com/microsoft/vscode-extension-samples/blob/cd6c33d101297d4db37869a0ef375ec16d57997c/lsp-sample/server/tsconfig.json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES6",
+    "lib": ["ES6"],
+    "outDir": "out",
+    "rootDir": "src",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "strict": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", ".vscode-test"]
+}

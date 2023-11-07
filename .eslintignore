@@ -1,0 +1,6 @@
+node_modules/**
+client/node_modules/**
+client/out/**
+client/bundle.js
+server/node_modules/**
+server/out/**
