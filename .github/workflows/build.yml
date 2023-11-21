@@ -1,0 +1,36 @@
+name: Build new extension version
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'client/**'
+      - 'server/**'
+      - 'language_configuration/**'
+
+jobs:
+  build-extension:
+    name: Build extension
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install npm packages
+        run: |
+          npm install
+          npm install -g @vscode/vsce
+      - name: Build extension
+        run: |
+          npm run compile
+          npm run browserify
+          vsce package --out "./pfdl-extension.vsix"
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: pfdl-vs-code-extension-build
+          path: ./pfdl-extension.vsix
