@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: The PFDL VS Code Extension Contributors
+# SPDX-License-Identifier: MIT
+
 image: node:latest
 
 stages:
