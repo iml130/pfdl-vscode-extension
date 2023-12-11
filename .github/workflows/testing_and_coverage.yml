@@ -2,8 +2,8 @@ name: Testing code visualization
 
 on:
   pull_request:
-    paths:
-      - 'client/src/**.ts'
+    branches:
+      - main
   push:
     paths:
       - 'client/src/**.ts'
