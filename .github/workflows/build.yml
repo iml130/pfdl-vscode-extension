@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023 The PFDL VS Code Extension Contributors
+# SPDX-License-Identifier: MIT
+
 name: Build new extension version
 
 on:
