@@ -10,6 +10,10 @@ on:
   push:
     paths:
       - 'client/src/**.ts'
+
+permissions:
+  contents: read
+
 jobs:
   run-tests:
     name: Run unit tests

@@ -12,6 +12,9 @@ on:
       - 'server/**'
       - 'language_configuration/**'
 
+permissions:
+  contents: read
+
 jobs:
   build-extension:
     name: Build extension
