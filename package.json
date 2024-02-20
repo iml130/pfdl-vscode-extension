@@ -104,7 +104,8 @@
     "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
     "test": "jest client/src/test/*.test.ts",
     "test:ci": "jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",
-    "browserify": "browserify ./client/out/code_visualization/main.js -g browserify-css -o ./client/bundle.js"
+    "browserify": "browserify ./client/out/code_visualization/main.js -g browserify-css -o ./client/bundle.js",
+    "lint": "eslint ./"
   },
   "devDependencies": {
     "@types/jest": "^29.5.5",
