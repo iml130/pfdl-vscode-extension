@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2024 The PFDL VS Code Extension Contributors
+# SPDX-License-Identifier: MIT
+
+name: Lint
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    paths:
+      - 'client/**'
+      - 'server/**'
+      - '.eslintrc.js'
+      - '.prettierrc'
+      - '.github/workflows/**'
+
+permissions:
+  contents: read
+
+jobs:
+  run-lint:
+    name: Lint check
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Setup Node
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
+        with:
+          node-version: '18'
+      - name: Install npm packages
+        run: npm install
+      - name: Run ESLint check
+        run: npm run lint
