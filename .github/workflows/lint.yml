@@ -8,12 +8,8 @@ on:
     branches:
       - main
   push:
-    paths:
-      - 'client/**'
-      - 'server/**'
-      - '.eslintrc.js'
-      - '.prettierrc'
-      - '.github/workflows/**'
+    branches:
+      - main
 
 permissions:
   contents: read
