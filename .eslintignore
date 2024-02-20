@@ -4,3 +4,5 @@ client/out/**
 client/bundle.js
 server/node_modules/**
 server/out/**
+jest-style-mock.js
+jest.config.js
