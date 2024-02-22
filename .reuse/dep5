@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: pfdl-vscode-extension
+Upstream-Contact:
+Source: https://github.com/iml130/pfdl-vscode-extension
+
+Files: img/*
+Copyright: The PFDL VS Code Extension Contributors
+License: CC-BY-4.0
