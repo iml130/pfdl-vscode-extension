@@ -13,9 +13,9 @@ import { createTooltips } from './event_handler';
  */
 const getGraphElements = require('./element_creation').getGraphElements;
 
-export function createGraph(cy) {
+export function createGraph(cy, parsedDotfile = null) {
   // add all graph nodes to cytoscape
-  const elements = getGraphElements();
+  const elements = getGraphElements(parsedDotfile);
   if (elements == null) {
     return false;
   }
