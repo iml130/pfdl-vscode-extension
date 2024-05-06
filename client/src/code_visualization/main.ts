@@ -7,43 +7,27 @@ import { setupEventHandlers } from './event_handler';
 import { createGraph } from './graph_creation';
 import { rotateNodes } from './context_menu';
 
-const cy = setupCytoscapeInstance(document.getElementById('cy'));
-setupEventHandlers(cy);
+const cytoscapeDiv = document.getElementById('cy');
+if (cytoscapeDiv) {
+  const cy = setupCytoscapeInstance(document.getElementById('cy'));
+  setupEventHandlers(cy);
 
-// create the graph
-createGraph(cy, null);
-
-// global function used to update the dashboard in the standalone browser version
-(window as any).createCodeVisualization = async function (
-  refreshData = true,
-  parsedDotfile = null
-) {
-  if (refreshData) {
+  // create the graph
+  createGraph(cy, null);
+  // global function to enable the dashboard in the standalone browser version to access the cytoscape instance
+  (window as any).getCy = function () {
+    return cy;
+  };
+  // global function used to update the dashboard in the standalone browser version
+  (window as any).createCodeVisualization = async function (
+    parsedDotfile = null
+  ) {
     cy.elements().remove();
-    const successfullyCreated = createGraph(cy, parsedDotfile);
-    if (!successfullyCreated) {
-      // no elements drawn
-      return;
+    createGraph(cy, parsedDotfile);
+    const imgElement = document.getElementById('codeVisuImg');
+    if (imgElement) {
+      // graph should be displayed as an image, rotate it
+      rotateNodes(cy.nodes(), cy.nodes('.container'), false);
     }
-  }
-
-  // create and display image of the code visualization if the <img> element 'codeVisuImg' exists
-  const imgElement = document.getElementById('codeVisuImg');
-  if (imgElement) {
-    // only exists in standalone browser version (without vscode) to create img of the rotated graph
-
-    // rotate nodes for img
-    rotateNodes(cy.nodes(), cy.nodes('.container'), false);
-
-    // create jpg
-    const graphBlob = cy.jpg({
-      full: true,
-      output: 'blob-promise'
-    });
-
-    // rotate nodes back
-    rotateNodes(cy.nodes(), cy.nodes('.container'), true);
-
-    return graphBlob;
-  }
-};
+  };
+}
