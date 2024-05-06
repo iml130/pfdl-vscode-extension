@@ -5,6 +5,11 @@ SPDX-License-Identifier: MIT
 
 # VS Code Extension for the Production Flow Description Language (PFDL)
 
+![Tests and Code Coverage](https://github.com/iml130/pfdl-vscode-extension/actions/workflows/testing_and_coverage.yml/badge.svg?branch=main)
+![Lint Check](https://github.com/iml130/pfdl-vscode-extension/actions/workflows/lint.yml/badge.svg?branch=main)
+![Build](https://github.com/iml130/pfdl-vscode-extension/actions/workflows/build.yml/badge.svg?branch=main)
+[![REUSE status](https://api.reuse.software/badge/github.com/iml130/pfdl-vscode-extension)](https://api.reuse.software/info/github.com/iml130/pfdl-vscode-extension)
+
 This extension helps you to develop your [PFDL](https://github.com/iml130/pfdl) programs.
 
 ## Table of Contents
