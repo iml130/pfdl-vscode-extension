@@ -162,7 +162,7 @@ const loopTree = (
  * @param fileString a JSON string containing the graph objects
  * @returns an array containing all existing nodes and edges in the dotfile
  */
-const parseElementsFromDotFileString = (
+export const parseElementsFromDotFileString = (
   fileString: any,
   standaloneTesting = false
 ) => {
