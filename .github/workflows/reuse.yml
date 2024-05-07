@@ -1,9 +1,9 @@
 # SPDX-FileCopyrightText: The PFDL VS Code Extension Contributors
 # SPDX-License-Identifier: CC0-1.0
 
-name: Lint
+name: REUSE Compliance Check
 
-on:
+on: 
   pull_request:
     branches:
       - main
@@ -15,17 +15,10 @@ permissions:
   contents: read
 
 jobs:
-  run-lint:
-    name: Lint check
+  reuse:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-      - name: Setup Node
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
-        with:
-          node-version: '18'
-      - name: Install npm packages
-        run: npm install
-      - name: Run ESLint check
-        run: npm run lint
+      - name: REUSE Compliance Check
+        uses: fsfe/reuse-action@a46482ca367aef4454a87620aa37c2be4b2f8106 # v3.0.0
