@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: The PFDL VS Code Extension Contributors
+// SPDX-License-Identifier: CC0-1.0
+
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
   preset: 'ts-jest',
