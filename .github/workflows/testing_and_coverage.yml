@@ -8,8 +8,8 @@ on:
     branches:
       - main
   push:
-    paths:
-      - 'client/src/**.ts'
+    branches:
+      - main
 
 permissions:
   contents: read
