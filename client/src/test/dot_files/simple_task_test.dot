@@ -130,7 +130,7 @@ call_tree:{
     "children": [
         {
             "id": "28f29fd8-cb15-4ebc-9fc0-994c54c3ed80",
-            "name": "paintingTask",
+            "name": "painting",
             "children": [
                 {
                     "id": "67681725-92ef-438d-90df-8a68a75c09e8",

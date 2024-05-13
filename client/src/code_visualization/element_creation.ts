@@ -68,17 +68,23 @@ const buildTreeStructure = (
   // assign the colors
   for (const container of containers) {
     const containerLabel = container.label.toLowerCase();
-    if (containerLabel.includes('task')) {
-      container.fillColor = taskColor;
-    } else if (containerLabel.includes('condition')) {
+    if (containerLabel.includes('condition')) {
       container.fillColor = conditionColor;
     } else if (containerLabel.includes('parallel')) {
       container.fillColor = parallelColor;
     } else if (containerLabel.includes('loop')) {
       container.fillColor = loopColor;
     } else {
-      // service is the only remaining boxtype
-      container.fillColor = serviceColor;
+      // Tasks and Services may not include a keyword, differentiate by the first letter
+      const labelStart = container.label[0];
+      const labelStartLowercase = containerLabel[0];
+      if (labelStart == labelStartLowercase) {
+        // lower case -> Task
+        container.fillColor = taskColor;
+      } else {
+        // upper case -> Service
+        container.fillColor = serviceColor;
+      }
     }
   }
   return containers;
