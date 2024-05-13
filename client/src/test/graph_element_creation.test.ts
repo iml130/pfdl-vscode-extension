@@ -111,7 +111,7 @@ function checkDotfileSplitting(dotfileString, treeStructure) {
 
   const paintingTask = treeStructure.children[0];
   expect(paintingTask.children).toBeArrayOfSize(1);
-  expect(paintingTask.name).toBe('paintingTask');
+  expect(paintingTask.name).toBe('painting');
 
   const painting = paintingTask.children[0];
   expect(painting.children).toBeArrayOfSize(0);
@@ -129,22 +129,25 @@ function checkContainerCreation(dotfileString, treeStructure) {
   expect(productionTask).toBeDefined();
   expect(productionTask.level).toBe(0);
   expect(productionTask.parentId).toBeNull();
+  expect(productionTask.fillColor).toBe('#000'); // predefined Task color
   const productionTaskId = productionTask.id;
 
   const paintingTask = containers.find(
-    (container) => container.label == 'paintingTask'
+    (container) => container.label == 'painting'
   );
   expect(paintingTask).toBeDefined();
   expect(paintingTask.level).toBe(1);
   expect(paintingTask.parentId).toBe(productionTaskId);
+  expect(paintingTask.fillColor).toBe('#000'); // predefined Task color
   const paintingTaskId = paintingTask.id;
 
-  const painting = containers.find(
+  const paintingService = containers.find(
     (container) => container.label == 'Painting'
   );
-  expect(painting).toBeDefined();
-  expect(painting.level).toBe(2);
-  expect(painting.parentId).toBe(paintingTaskId);
+  expect(paintingService).toBeDefined();
+  expect(paintingService.level).toBe(2);
+  expect(paintingService.fillColor).toBe('#111'); // predefined Service color
+  expect(paintingService.parentId).toBe(paintingTaskId);
 }
 
 function checkElementCreation(dotfileString) {
