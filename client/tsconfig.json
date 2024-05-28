@@ -1,7 +1,6 @@
 // SPDX-FileCopyrightText: Microsoft Corporation
 // SPDX-FileCopyrightText: The PFDL VS Code Extension Contributors
 // SPDX-License-Identifier: MIT
-// SPDX-License-Identifier: CC0-1.0
 
 // based on https://github.com/microsoft/vscode-extension-samples/blob/cd6c33d101297d4db37869a0ef375ec16d57997c/lsp-sample/client/tsconfig.json
 {
