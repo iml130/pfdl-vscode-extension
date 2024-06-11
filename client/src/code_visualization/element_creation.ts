@@ -11,7 +11,7 @@ import { Point } from '../types/point';
  * read out the stored HTML data to create nodes, edges and containers to visualize the PFDL program.
  * @returns graph elements as valid JSON strings that are accepted by cytoscape
  */
-export function getGraphElements() {
+export function getGraphElements(parsedDotfile = null) {
   // retrieve graph data
   const dotfileContent = document.getElementById('graphElementsDiv').innerText;
   if (dotfileContent == null || dotfileContent.search('graph') == -1) {
@@ -23,12 +23,15 @@ export function getGraphElements() {
 
   const containers = buildTreeStructure(treeStructure, dotfileString);
 
-  // 3rd party package
-  const parse = require('dotparser');
-  const parsedContent = parse(dotfileString)[0];
+  if (parsedDotfile == null) {
+    // parse the dotfile here
+    // 3rd party package
+    const parse = require('dotparser');
+    parsedDotfile = parse(dotfileString)[0];
+  }
 
   // convert into utf-8 string
-  const [nodes, edges] = parseElementsFromDotFileString(parsedContent);
+  const [nodes, edges] = parseElementsFromDotFileString(parsedDotfile);
   return getFinalGraphElements(nodes, edges, containers);
 }
 
@@ -159,7 +162,7 @@ const loopTree = (
  * @param fileString a JSON string containing the graph objects
  * @returns an array containing all existing nodes and edges in the dotfile
  */
-const parseElementsFromDotFileString = (
+export const parseElementsFromDotFileString = (
   fileString: any,
   standaloneTesting = false
 ) => {
