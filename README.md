@@ -232,17 +232,19 @@ The program crashes and it has something to do with the Scheduler the extension 
 > To display errors and to generate the code visualization, the extension calls the [Scheduler](https://github.com/iml130/pfdl). The Scheduler is still under development, so there may be bugs. If the extension crashes because of the Scheduler please open an issue in that repo.
 
 ## Release Notes
+
 For each release, a `.vsix` installation file for VS Code is provided, as well as a `bundle.js` source code file, containing the code that is responsible for the code visualization.
 
-Additionally, a license file is generated using the [OSS Review Toolkit (ORT)](http://oss-review-toolkit.org/ort/) to automatically conclude licenses and copyright information declared in the dependencies of this project (excluding `devDependencies` for npm). The file can be reproduced by following the [ORT installation guide](http://oss-review-toolkit.org/ort/docs/getting-started/installation) and running the following commands from inside the downloaded ORT repository:
+Additionally, a license file is generated using the [OSS Review Toolkit (ORT)](http://oss-review-toolkit.org/ort/) to automatically collect and summarize licenses and copyright information declared in the dependencies of this project (excluding `devDependencies` for npm). The file can be reproduced by following the [ORT installation guide](http://oss-review-toolkit.org/ort/docs/getting-started/installation) and running the following commands from inside the downloaded ORT repository:
 
 ```
-cli/build/install/ort/bin/ort analyze -i path/to/pfdl-vs-code-extension -o path/to/output/directory 
+cli/build/install/ort/bin/ort analyze -i path/to/pfdl-vs-code-extension -o path/to/output/directory
 
 cli/build/install/ort/bin/ort -P ort.enableRepositoryPackageCurations=true -P ort.enableRepositoryPackageConfigurations=true -P ort.scanner.skipExcluded=true scan -i path/to/output/directory/analyzer-result.yml -o path/to/output/directory
 
 cli/build/install/ort/bin/ort report -f PdfTemplate -i path/to/output/directory/scan-result.yml -o path/to/output/directory
 ```
+
 Note that the copyright information of this project found by ORT are not complete and had to be completed manually.
 
 ### v0.1.0
