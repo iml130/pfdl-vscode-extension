@@ -251,6 +251,12 @@ Note that the copyright information of this project found by ORT are not complet
 
 - First release
 
+### v0.1.1
+
+- Code Visualization: Provide global methods that can be accessed by external modules
+- Achieve REUSE compliance for the project
+- Add github workflows
+
 ## License
 
 VS Code Extension for the Production Flow Description Language (PFDL) is licensed under the MIT License. See [LICENSE](LICENSE) for details on the licensing terms.
