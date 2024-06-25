@@ -7,3 +7,4 @@ node_modules
 coverage
 media
 client/bundle.js
+package-lock.json
