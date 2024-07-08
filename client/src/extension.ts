@@ -254,7 +254,7 @@ export function activate(context: ExtensionContext) {
    * @returns AN array containing the filename (without ending) and the complete filepath to the dotfile
    */
   function getDotFilenameAndPathFromPfdlFilepath(filepath: string) {
-    // for Linux / MacOS
+    // for Linux / macOS
     let pathDivider = '/';
     if (!filepath.includes('/')) {
       // for Windows operating systems

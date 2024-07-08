@@ -16,7 +16,7 @@ excludes:
 curations:
   license_findings:
   - path: "README.md"
-    start_lines: 262
+    start_lines: 266
     line_count: 1
     detected_license: "LGPL-2.0-or-later"
     reason: "DOCUMENTATION_OF"

@@ -116,11 +116,15 @@ To install the extension, use the already built extension file in the build fold
 
 - [Python](https://www.python.org/) (>= v3.10)
 - [GraphViz](https://graphviz.org/) (>= v2.42.2)
-- Pip packages from requirements.txt(install with `pip install -r requirements.txt`)
+- Pip packages from requirements.txt (install with `pip install -r requirements.txt`)
+
   - [ANTLR4](https://github.com/antlr/antlr4) (== v4.9.3)
   - [antlr-denter](https://github.com/yshavit/antlr-denter) (>=v1.3.1)
   - [SNAKES](https://github.com/fpom/snakes) (>=v0.9.30)
+
 - (For development only) [NodeJS](https://nodejs.org/en/) (>=v18.17.1)
+
+> **NOTE:** The pip packages must be accessible to the extension. Especially on macOS, consider installing them globally by adding the `--break-system-packages` flag.
 
 ### Install from VSIX file
 
