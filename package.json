@@ -4,7 +4,7 @@
   "description": "A VS Code extension to support syntax highlighting, formatting and code visualization for the Production Flow Description Language (PFDL) files",
   "author": "Oliver Stolz and Maximilian Hörstrup",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/iml130/pfdl-vscode-extension"

@@ -25,7 +25,7 @@ export function activate(context: ExtensionContext) {
   const fs = require('fs');
 
   // the filepath where the dotfile is saved. Create if not already exists
-  const mediaPath = __dirname + '/../../media/';
+  const mediaPath = path.join(__dirname, '..', '..', 'media');
   if (!fs.existsSync(mediaPath)) {
     fs.mkdir(mediaPath, (err) => {
       throw err;
@@ -254,11 +254,17 @@ export function activate(context: ExtensionContext) {
    * @returns AN array containing the filename (without ending) and the complete filepath to the dotfile
    */
   function getDotFilenameAndPathFromPfdlFilepath(filepath: string) {
+    // for Linux / macOS
+    let pathDivider = '/';
+    if (!filepath.includes('/')) {
+      // for Windows operating systems
+      pathDivider = '\\';
+    }
     const filename = filepath.substring(
-      filepath.lastIndexOf('/') + 1, // where the filename starts
+      filepath.lastIndexOf(pathDivider) + 1, // where the filename starts
       filepath.length - 5 // cut off the file ending (.pfdl)
     );
-    return [filename, mediaPath + filename + '.dot'];
+    return [filename, path.join(mediaPath, filename + '.dot')];
   }
 
   /**

@@ -1,9 +1,6 @@
 # SPDX-FileCopyrightText: The PFDL VS Code Extension Contributors
 # SPDX-License-Identifier: CC0-1.0
 
-out
-node_modules
-.vscode-test
-coverage
-client/bundle.js
-package-lock.json
+# Ignore all files in the media directory except the .gitignore itself
+*
+!.gitignore
