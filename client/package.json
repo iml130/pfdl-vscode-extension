@@ -3,7 +3,7 @@
   "description": "The VSCode client that listens for PFDL language server events",
   "author": "Oliver Stolz and Maximilian Hörstrup",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "publisher": "fraunhofer",
   "repository": {
     "type": "git",
