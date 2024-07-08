@@ -35,14 +35,9 @@
       "script": "browserify"
     },
     {
-      "type": "shell",
-      "label": "remove_dot_files",
-      "command": "rm -rf ./media && mkdir media"
-    },
-    {
       "label": "prepare_and_watch",
       "dependsOrder": "sequence",
-      "dependsOn": ["npm_watch", "browserify", "remove_dot_files"]
+      "dependsOn": ["npm_watch", "browserify"]
     }
   ]
 }

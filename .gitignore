@@ -5,6 +5,6 @@ out
 node_modules
 .vscode-test
 coverage
-media
+media/*
 client/bundle.js
 package-lock.json
